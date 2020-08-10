@@ -1,5 +1,11 @@
 data Op =  Add | Sub | Mul | Div deriving (Show)
 
+--todo: Redefine the combinatorial function choices using a list 
+--      comprehension rather than the library functions concat and map
+--todo: Modify program to produce the nearest solutions 
+--      if no exact solution is possible.
+--      Order the solutions using a suitable measure of simplicity.
+
 valid         :: Op -> Int -> Int -> Bool
 valid Add x y = x <= y
 valid Sub x y = x > y
