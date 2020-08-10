@@ -92,7 +92,12 @@ appendNewline :: String -> String
 appendNewline = (flip (++)) "\n"
 
 main :: IO ()
-main = seqn $ map (putStr.appendNewline.show) ((solutions [1,9,7,3,5,100] 226))
+main = do
+        putStr "Enter a list of numbers \n"
+        numbers <- getLine 
+        putStr "Enter a target number \n"
+        target <- getLine
+        seqn $ map (putStr.appendNewline.show) (solutions (read numbers :: [Int]) (read target :: Int))
 
 
 
