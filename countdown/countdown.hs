@@ -1,3 +1,5 @@
+import IOplay
+
 data Op =  Add | Sub | Mul | Div deriving (Show)
 
 --todo: Redefine the combinatorial function choices using a list 
@@ -86,8 +88,11 @@ solutions ns n  = [ e |  ns' <- choices ns,
                          (e,m) <- results ns',
                          m == n]
 
+appendNewline :: String -> String
+appendNewline = (flip (++)) "\n"
+
 main :: IO ()
-main = putStr $ show $ take 1 (solutions [1,3,7,10,25,50] 765)
+main = seqn $ map (putStr.appendNewline.show) ((solutions [1,9,7,3,5,100] 226))
 
 
 
